@@ -23,4 +23,4 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "run"]
+ENTRYPOINT ["dotnet", "WineShop.dll"]
