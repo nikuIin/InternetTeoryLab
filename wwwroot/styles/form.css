@@ -1,0 +1,77 @@
+/* ===========================================
+   Form Styles - Стили форм
+   =========================================== */
+
+/* Контактная форма */
+.contact {
+    margin-top: 4rem;
+    padding-bottom: 3rem;
+}
+
+.contact__title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.contact__form label {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.contact__form input,
+.contact__form textarea {
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    color: var(--text-color);
+    background: var(--background-color-white);
+    transition: border-color var(--transition-duration);
+    font-family: inherit;
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.contact__form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact__info {
+    max-width: 480px;
+    margin: 2rem auto 0;
+    padding: 24px;
+    background: var(--background-color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-md);
+}
+
+.contact__info h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.contact__info p {
+    font-size: 1rem;
+    color: var(--text-color-light);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}

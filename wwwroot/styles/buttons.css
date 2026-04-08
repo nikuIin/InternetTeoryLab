@@ -1,0 +1,76 @@
+/* ===========================================
+   Button Styles - Стили кнопок
+   =========================================== */
+
+.button {
+    padding: 12px 24px;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    transition:
+        background var(--transition-duration),
+        color var(--transition-duration),
+        transform var(--transition-duration);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button-main {
+    background: var(--button-gradient);
+    color: var(--text-color-white);
+    box-shadow: var(--box-shadow-primary);
+}
+
+.button-main:hover {
+    filter: brightness(var(--hover-brightness));
+    transform: scale(var(--hover-scale));
+}
+
+.button-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.button-outline:hover {
+    background: var(--button-gradient);
+    color: var(--text-color-white);
+}
+
+.button-contact {
+    background: var(--button-gradient);
+    color: var(--text-color-white);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    padding: 10px 26px;
+    font-size: 1rem;
+    box-shadow: 0 0 12px var(--primary-color);
+    transition:
+        background var(--transition-duration),
+        transform var(--transition-duration);
+}
+
+.button-contact:hover {
+    filter: brightness(1.15);
+    transform: scale(1.04);
+}
+
+.button-submit {
+    background: #222;
+    color: var(--text-color-white);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    padding: 12px 18px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background var(--transition-duration);
+}
+
+.button-submit:hover {
+    background: var(--primary-color);
+}

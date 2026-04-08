@@ -1,0 +1,109 @@
+/* ===========================================
+   Articles Styles - Стили статей
+   =========================================== */
+
+.articles {
+    margin: 0 auto;
+}
+
+.articles__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.articles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+/* Карточка статьи */
+.article-card {
+    display: flex;
+    align-items: center;
+    background: var(--background-color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-article);
+    padding: 19px 22px;
+    gap: 18px;
+    transition: box-shadow 0.25s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.article-card:hover {
+    box-shadow: var(--box-shadow-card-hover);
+}
+
+.article-card__img {
+    width: 70px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(218, 12, 129, 0.18);
+}
+
+.article-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.article-card__title {
+    font-size: 1.14rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 3px;
+}
+
+.article-card__desc {
+    font-size: 1rem;
+    color: var(--text-color-light);
+    margin: 0;
+    line-height: 1.44;
+}
+
+@media (max-width: 768px) {
+    .articles__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.authors-section {
+    background-color: #f8f5f0;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+.authors-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #5a3d2e;
+}
+.authors-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.author-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+.author-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #5a3d2e;
+}
+.author-bio {
+    font-size: 0.9rem;
+    color: #666;
+}

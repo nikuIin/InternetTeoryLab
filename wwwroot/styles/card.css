@@ -1,0 +1,99 @@
+/* ===========================================
+   Card Styles - Стили карточек товаров
+   =========================================== */
+
+/* Секция продуктов */
+.products {
+    max-width: var(--container-max-width);
+    margin: 2rem auto;
+    padding: 0 var(--padding-horizontal);
+}
+
+.products__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.products__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+/* Карточка товара */
+.card {
+    background: var(--background-color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-card);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 12px;
+    transition: box-shadow var(--transition-duration-slow) ease;
+}
+
+.card:hover {
+    box-shadow: var(--box-shadow-card-hover);
+}
+
+.card__img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    border-radius: var(--border-radius-md);
+    background: var(--background-color-light);
+}
+
+.card__title {
+    margin: 10px 0 6px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Теги */
+.tag {
+    padding: 4px 10px;
+    border-radius: var(--border-radius-pill);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-color-white);
+    white-space: nowrap;
+    user-select: none;
+    cursor: default;
+    transition: background var(--transition-duration-slow) ease;
+}
+
+.tag-red {
+    background-color: var(--primary-color);
+}
+
+.tag-green {
+    background-color: #4caf50;
+}
+
+.tag-blue {
+    background-color: #2196f3;
+}
+
+.tag-yellow {
+    background-color: #ffca28;
+    color: var(--text-color);
+}
+
+.tag-purple {
+    background-color: #9c27b0;
+}
+
+.tag-pink {
+    background-color: #e91e63;
+}

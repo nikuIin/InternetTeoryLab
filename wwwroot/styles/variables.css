@@ -1,0 +1,82 @@
+/* ===========================================
+   CSS Variables - Единые переменные проекта
+   =========================================== */
+
+:root {
+    /* Цвета */
+    --primary-color: #da0c81;
+    --secondary-color: #e83d6f;
+    --accent-pink: #f06a9b;
+    --accent-light-pink: #ff9ac1;
+    --accent-purple: #9353d3;
+
+    /* Текст */
+    --text-color: #191919;
+    --text-color-light: #444;
+    --text-color-muted: #555;
+    --text-color-white: #fff;
+
+    /* Фоны */
+    --background-color: #fafafa;
+    --background-color-white: #fff;
+    --background-color-light: #f9f9fa;
+    --background-color-alt: #f6f6fa;
+    --background-color-hero-overlay: rgba(32, 7, 34, 0.47);
+
+    /* Границы */
+    --border-color: #d4d4d4;
+    --border-color-light: #ececec;
+    --border-color-input: #dedede;
+    --border-color-faq: #e2e2e2;
+
+    /* Размеры */
+    --container-max-width: 1200px;
+    --padding-horizontal: 32px;
+    --header-height: 80px;
+
+    /* Скругления */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 20px;
+    --border-radius-pill: 20px;
+
+    /* Тени */
+    --box-shadow-sm: 0 1px 8px rgba(0, 0, 0, 0.08);
+    --box-shadow-md: 0 2px 16px rgba(0, 0, 0, 0.06);
+    --box-shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --box-shadow-card: 0 3px 15px rgb(218 12 129 / 0.12);
+    --box-shadow-card-hover: 0 6px 30px rgb(218 12 129 / 0.25);
+    --box-shadow-primary: 0 0 16px rgba(218, 12, 129, 0.67);
+    --box-shadow-image: 0 4px 18px 0 rgba(218, 12, 129, 0.11);
+    --box-shadow-article: 0 2px 12px rgba(218, 12, 129, 0.07);
+
+    /* Анимации */
+    --transition-duration: 0.2s;
+    --transition-duration-slow: 0.3s;
+    --animation-duration: 10s;
+
+    /* Эффекты при наведении */
+    --hover-brightness: 1.1;
+    --hover-scale: 1.03;
+
+    /* Градиенты */
+    --primary-gradient: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color),
+        var(--accent-pink),
+        var(--accent-light-pink),
+        var(--accent-purple),
+        var(--primary-color)
+    );
+
+    --button-gradient: linear-gradient(
+        120deg,
+        var(--primary-color),
+        var(--secondary-color),
+        var(--accent-pink),
+        var(--accent-light-pink),
+        var(--primary-color)
+    );
+}

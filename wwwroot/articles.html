@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Статьи - Янтарное</title>
+        <!-- Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Стили -->
+        <link href="styles/variables.css" rel="stylesheet" />
+        <link href="styles/base.css" rel="stylesheet" />
+        <link href="styles/header.css" rel="stylesheet" />
+        <link href="styles/buttons.css" rel="stylesheet" />
+        <link href="styles/aurora.css" rel="stylesheet" />
+        <link href="styles/articles.css" rel="stylesheet" />
+        <link href="styles/footer.css" rel="stylesheet" />
+        <link href="styles/scroll_top.css" rel="stylesheet" />
+    </head>
+    <body class="body">
+        <header class="header">
+            <div class="container header__inner">
+                <div class="header__left">
+                    <a href="index.html" class="header__logo">
+                        <p class="header__logo-text">Янтарное</p>
+                    </a>
+                    <nav class="header__nav">
+                        <a href="Catalog" class="header__nav-link">Каталог</a>
+                        <a href="about.html" class="header__nav-link">О нас</a>
+                        <a href="articles.html" class="header__nav-link"
+                            >Статьи</a
+                        >
+                        <a href="faq.html" class="header__nav-link">FAQ</a>
+                        <a href="delivery.html" class="header__nav-link"
+                            >Доставка</a
+                        >
+                        <a href="payment.html" class="header__nav-link"
+                            >Оплата</a
+                        >
+                    </nav>
+                </div>
+                <div class="header__right">
+                    <a
+                        href="/Cart"
+                        class="header__cart-icon"
+                        aria-label="Корзина"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                            ></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </a>
+                    <a href="contacts.html" class="button button-contact"
+                        >Связаться с нами</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="articles container">
+                <h1 class="articles__title animate-aurora">Блог Янтарное</h1>
+
+                <h2 class="authors-title header_center">Наши статьи</h2>
+                <div class="articles__grid">
+                    <a href="article_red_wine.html" class="article-card">
+                        <img
+                            class="article-card__img"
+                            src="img/how_chose_wine.jpg"
+                            alt="Red Wine"
+                        />
+                        <div class="article-card__body">
+                            <p class="article-card__title">
+                                Как выбрать красное вино
+                            </p>
+                            <p class="article-card__desc">
+                                Откройте для себя секреты выбора идеального
+                                красного вина для любого случая.
+                            </p>
+                        </div>
+                    </a>
+                    <a href="article_red_wine.html" class="article-card">
+                        <img
+                            class="article-card__img"
+                            src="img/wine-products/wine-product1.webp"
+                            alt="White Wine"
+                        />
+                        <div class="article-card__body">
+                            <p class="article-card__title">
+                                Сочетание белого вина с едой
+                            </p>
+                            <p class="article-card__desc">
+                                Узнайте, как правильно сочетать белые вина с
+                                различными блюдами, чтобы усилить их вкус.
+                            </p>
+                        </div>
+                    </a>
+                    <a href="article_red_wine.html" class="article-card">
+                        <img
+                            class="article-card__img"
+                            src="img/wine-products/wine-product2.jpg"
+                            alt="Rose Wine"
+                        />
+                        <div class="article-card__body">
+                            <p class="article-card__title">
+                                Все о розовом вине
+                            </p>
+                            <p class="article-card__desc">
+                                Погрузитесь в мир розовых вин и узнайте об их
+                                разнообразии и способах производства.
+                            </p>
+                        </div>
+                    </a>
+                    <a href="article_red_wine.html" class="article-card">
+                        <img
+                            class="article-card__img"
+                            src="img/wine-products/wine-product3.jpg"
+                            alt="Sparkling Wine"
+                        />
+                        <div class="article-card__body">
+                            <p class="article-card__title">
+                                Путеводитель по игристым винам
+                            </p>
+                            <p class="article-card__desc">
+                                От шампанского до просекко, этот путеводитель
+                                поможет вам разобраться в мире игристых вин.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="authors-section">
+                    <h2 class="authors-title header_center">Наши авторы</h2>
+                    <div class="authors-list">
+                        <div class="author-card">
+                            <h3 class="author-name">Алексей Виноградов</h3>
+                            <p class="author-bio">
+                                Специалист по красным винам, 10 лет опыта в
+                                винодельческой индустрии.
+                            </p>
+                        </div>
+                        <div class="author-card">
+                            <h3 class="author-name">Елена Сомова</h3>
+                            <p class="author-bio">
+                                Эксперт по белым винам, автор нескольких книг о
+                                виноделии.
+                            </p>
+                        </div>
+                        <div class="author-card">
+                            <h3 class="author-name">Дмитрий Козлов</h3>
+                            <p class="author-bio">
+                                Знаток игристых вин, провел более 15 лет в
+                                винодельческих регионах Франции.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__container">
+                <div class="footer__info">
+                    <p>© 2024 Янтарное. Все права защищены.</p>
+                    <div class="footer__links">
+                        <a href="privacy.html" class="footer__link"
+                            >Политика конфиденциальности</a
+                        >
+                        <a href="contacts.html" class="footer__link"
+                            >Контакты</a
+                        >
+                        <a href="add_wine.html" class="footer__link"
+                            >Добавить вино</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="scroll-to-top" id="scrollToTop">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M18 15l-6-6-6 6" />
+            </svg>
+        </div>
+    </body>
+    <script src="scripts/scroll_top.js"></script>
+</html>

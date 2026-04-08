@@ -1,0 +1,28 @@
+/* Анимации для появления элементов при прокрутке */
+.appear {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.appear.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Задержки для последовательного появления */
+.appear.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.appear.delay-2 {
+    transition-delay: 0.4s;
+}
+
+.appear.delay-3 {
+    transition-delay: 0.6s;
+}
+
+.appear.delay-4 {
+    transition-delay: 0.8s;
+}

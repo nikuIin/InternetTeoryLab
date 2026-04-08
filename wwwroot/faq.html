@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FAQ - Янтарное</title>
+        <!-- Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Стили -->
+        <link href="styles/variables.css" rel="stylesheet" />
+        <link href="styles/base.css" rel="stylesheet" />
+        <link href="styles/header.css" rel="stylesheet" />
+        <link href="styles/buttons.css" rel="stylesheet" />
+        <link href="styles/aurora.css" rel="stylesheet" />
+        <link href="styles/faq.css" rel="stylesheet" />
+        <link href="styles/footer.css" rel="stylesheet" />
+        <link href="styles/scroll_top.css" rel="stylesheet" />
+    </head>
+    <body class="body">
+        <header class="header">
+            <div class="container header__inner">
+                <div class="header__left">
+                    <a href="index.html" class="header__logo">
+                        <p class="header__logo-text">Янтарное</p>
+                    </a>
+                    <nav class="header__nav">
+                        <a href="Catalog" class="header__nav-link">Каталог</a>
+                        <a href="about.html" class="header__nav-link">О нас</a>
+                        <a href="articles.html" class="header__nav-link"
+                            >Статьи</a
+                        >
+                        <a href="faq.html" class="header__nav-link">FAQ</a>
+                        <a href="delivery.html" class="header__nav-link"
+                            >Доставка</a
+                        >
+                        <a href="payment.html" class="header__nav-link"
+                            >Оплата</a
+                        >
+                    </nav>
+                </div>
+                <div class="header__right">
+                    <a
+                        href="/Cart"
+                        class="header__cart-icon"
+                        aria-label="Корзина"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                            ></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </a>
+                    <a href="contacts.html" class="button button-contact"
+                        >Связаться с нами</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="faq container">
+                <h1 class="faq__title animate-aurora">
+                    Часто задаваемые вопросы
+                </h1>
+                <div class="faq__list">
+                    <h2 class="faq__subtitle">Заказ и оплата</h2>
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            Как заказать вино?
+                        </button>
+                        <div class="faq__answer">
+                            <p>
+                                Вы можете заказать вино, выбрав его в нашем
+                                каталоге и добавив в корзину. Затем следуйте
+                                инструкциям для оформления заказа.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            Какие способы оплаты вы принимаете?
+                        </button>
+                        <div class="faq__answer">
+                            <p>
+                                Мы принимаем оплату банковскими картами Visa,
+                                MasterCard, а также через системы электронных
+                                платежей.
+                            </p>
+                        </div>
+                    </div>
+                    <h2 class="faq__subtitle">Доставка и возврат</h2>
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            Осуществляете ли вы доставку по всей стране?
+                        </button>
+                        <div class="faq__answer">
+                            <p>
+                                Да, мы осуществляем доставку по всей стране
+                                через партнерские службы доставки. Подробнее о
+                                зонах и сроках доставки можно узнать на странице
+                                <a href="delivery.html">Доставка</a>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            Могу ли я вернуть товар?
+                        </button>
+                        <div class="faq__answer">
+                            <p>
+                                Возврат товара возможен в соответствии с
+                                законодательством о защите прав потребителей.
+                                Пожалуйста, ознакомьтесь с нашей политикой
+                                возврата на странице
+                                <a href="privacy.html"
+                                    >Политика конфиденциальности</a
+                                >.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            Есть ли у вас программы лояльности?
+                        </button>
+                        <div class="faq__answer">
+                            <p>
+                                Да, у нас есть программа лояльности для
+                                постоянных клиентов. Зарегистрируйтесь на сайте,
+                                чтобы получать бонусы и скидки.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__container">
+                <div class="footer__info">
+                    <p>© 2024 Янтарное. Все права защищены.</p>
+                    <div class="footer__links">
+                        <a href="privacy.html" class="footer__link"
+                            >Политика конфиденциальности</a
+                        >
+                        <a href="contacts.html" class="footer__link"
+                            >Контакты</a
+                        >
+                        <a href="add_wine.html" class="footer__link"
+                            >Добавить вино</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="scroll-to-top" id="scrollToTop">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M18 15l-6-6-6 6" />
+            </svg>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const faqItems = document.querySelectorAll(".faq__item");
+
+                faqItems.forEach((item) => {
+                    const question = item.querySelector(".faq__question");
+                    question.addEventListener("click", () => {
+                        item.classList.toggle("active");
+                    });
+                });
+            });
+        </script>
+    </body>
+    <script src="scripts/scroll_top.js"></script>
+</html>

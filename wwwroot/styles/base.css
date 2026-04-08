@@ -1,0 +1,63 @@
+/* ===========================================
+   Base Styles - Базовые стили
+   =========================================== */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: "Noto Sans Display", sans-serif;
+    line-height: 1.5;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.header_center {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    margin: 0;
+}
+
+/* Контейнер */
+._container,
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding-left: var(--padding-horizontal);
+    padding-right: var(--padding-horizontal);
+}

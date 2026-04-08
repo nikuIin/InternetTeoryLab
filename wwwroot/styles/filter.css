@@ -1,0 +1,88 @@
+/* ===========================================
+   Filter Styles - Стили фильтров
+   =========================================== */
+
+.filter {
+    margin: 2.5rem 0 2rem 0;
+    background: var(--background-color-white);
+    padding: 0;
+}
+
+.filter__heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.filter__content {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.filter__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter__label {
+    font-size: 1.21rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.15rem;
+}
+
+.filter__tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter__tag {
+    background: var(--background-color-alt);
+    color: var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    padding: 6px 18px;
+    border: none;
+    font-size: 1.02rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background var(--transition-duration),
+        color var(--transition-duration);
+    font-family: inherit;
+}
+
+.filter__tag:hover,
+.filter__tag:focus {
+    background: var(--primary-color);
+    color: var(--text-color-white);
+}
+
+.filter__search {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 220px;
+}
+
+.filter__input {
+    width: 100%;
+    padding: 7px 16px;
+    border: 1px solid var(--border-color-input);
+    border-radius: var(--border-radius-sm);
+    font-size: 1.07rem;
+    color: var(--text-color);
+    background: var(--background-color-white);
+    outline: none;
+    transition: border-color var(--transition-duration);
+    font-family: inherit;
+}
+
+.filter__input:focus {
+    border-color: var(--primary-color);
+}

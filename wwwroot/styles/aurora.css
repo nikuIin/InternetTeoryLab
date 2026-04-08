@@ -1,0 +1,27 @@
+/* ===========================================
+   Aurora Animation - Анимация градиента
+   =========================================== */
+
+.hero__gradient,
+.animate-aurora {
+    background: var(--primary-gradient);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: aurora var(--animation-duration) ease-in-out infinite;
+}
+
+@keyframes aurora {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

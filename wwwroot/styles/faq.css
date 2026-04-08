@@ -1,0 +1,71 @@
+/* ===========================================
+   FAQ Styles - Стили FAQ секции
+   =========================================== */
+
+.faq {
+    padding: 2rem 0 4rem;
+}
+
+.faq__title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: var(--text-color);
+}
+
+.faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--background-color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-md);
+}
+
+.faq__item {
+    border-bottom: 1px solid var(--border-color-faq);
+    padding: 0;
+}
+
+.faq__item:last-child {
+    border-bottom: none;
+}
+
+.faq__question {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 18px;
+    font-size: 1.1rem;
+    text-align: left;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background var(--transition-duration);
+    font-family: inherit;
+}
+
+.faq__question:hover {
+    background: var(--background-color-alt);
+}
+
+.faq__answer {
+    padding: 0 24px 18px;
+    color: var(--text-color-light);
+    font-size: 1rem;
+    display: none;
+}
+
+.faq__answer a {
+    color: var(--primary-color);
+}
+
+.faq__answer a:hover {
+    text-decoration: underline;
+}
+
+.faq__item.active .faq__answer {
+    display: block;
+}

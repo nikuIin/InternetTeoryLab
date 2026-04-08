@@ -1,0 +1,246 @@
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html data-theme="light" lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Янтарное</title>
+        <!-- Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Стили -->
+        <link href="~/styles/variables.css" rel="stylesheet" />
+        <link href="~/styles/base.css" rel="stylesheet" />
+        <link href="~/styles/header.css" rel="stylesheet" />
+        <link href="~/styles/buttons.css" rel="stylesheet" />
+        <link href="~/styles/aurora.css" rel="stylesheet" />
+        <link href="~/styles/hero.css" rel="stylesheet" />
+        <link href="~/styles/about_us.css" rel="stylesheet" />
+        <link href="~/styles/card.css" rel="stylesheet" />
+        <link href="~/styles/footer.css" rel="stylesheet" />
+        <link href="~/styles/fullscrean_images.css" rel="stylesheet" />
+        <link href="~/styles/scroll_top.css" rel="stylesheet" />
+        <link href="~/styles/appear_animations.css" rel="stylesheet" />
+    </head>
+    <body class="body">
+        <header class="header">
+            <div class="container header__inner">
+                <div class="header__left">
+                    <a href="/" class="header__logo">
+                        <p class="header__logo-text">Янтарное</p>
+                    </a>
+                    <nav class="header__nav">
+                        <a href="/Catalog" class="header__nav-link">Каталог</a>
+                        <a href="/about.html" class="header__nav-link">О нас</a>
+                        <a href="/articles.html" class="header__nav-link">Статьи</a>
+                        <a href="/faq.html" class="header__nav-link">FAQ</a>
+                        <a href="/delivery.html" class="header__nav-link">Доставка</a>
+                        <a href="/payment.html" class="header__nav-link">Оплата</a>
+                    </nav>
+                </div>
+                <div class="header__right">
+                    <a
+                        href="/Cart"
+                        class="header__cart-icon"
+                        aria-label="Корзина"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                            ></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </a>
+                    <a href="/contacts.html" class="button button-contact"
+                        >Связаться с нами</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <main>
+                <section class="hero">
+                    <div class="hero__overlay"></div>
+                    <div class="container hero__content">
+                        <h1 class="hero__title hero__gradient">
+                            Янтарное – вкусите совершенство в каждом глотке
+                        </h1>
+                        <p class="hero__subtitle">
+                            Мир изысканных вин, где каждая бутылка — это
+                            традиции и уникальный вкус.
+                        </p>
+                        <div class="hero__buttons">
+                            <a class="button button-main" href="/contacts.html"
+                                >Связаться</a
+                            >
+                            <a class="button button-outline" href="/about.html"
+                                >О нас</a
+                            >
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about" id="about">
+                    <div class="container about__container appear">
+                        <h2 class="about__title appear">О НАС</h2>
+                        <div class="about__row appear">
+                            <div class="about__img appear delay-1">
+                                <img alt="Вино" src="~/img/wine1.webp" />
+                            </div>
+                            <div class="about__img appear delay-2">
+                                <img alt="Виноград" src="~/img/grape1.png" />
+                            </div>
+                            <div class="about__img appear delay-3">
+                                <img alt="Вино" src="~/img/wine2.jpg" />
+                            </div>
+                            <div class="about__img appear delay-4">
+                                <img alt="Виноград" src="~/img/grape2.jpeg" />
+                            </div>
+                        </div>
+                        <div class="about__row appear">
+                            <div
+                                class="about__info about__info--wide appear delay-1"
+                            >
+                                <p>
+                                    Наш винодельческий опыт насчитывает более 20
+                                    лет, и мы гордимся лучшими традициями
+                                    виноделия.
+                                </p>
+                            </div>
+                            <div class="about__img appear delay-2">
+                                <img
+                                    alt="Производство"
+                                    src="~/img/wine-production-1.jpg"
+                                />
+                            </div>
+                        </div>
+                        <div class="about__row appear">
+                            <div class="about__img appear delay-1">
+                                <img
+                                    alt="Производство"
+                                    src="~/img/wine-production-2.jpg"
+                                />
+                            </div>
+                            <div class="about__info appear delay-2">
+                                <p>
+                                    Мы стремимся создавать вина, которые
+                                    подчёркивают уникальность каждого региона и
+                                    сорта винограда.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="products appear">
+                    <h2 class="products__title appear">Популярные вина</h2>
+                    <div class="products__grid appear">
+                        <a class="card appear delay-1" href="/Wine/Details/1">
+                            <img
+                                alt="Наследие мастера"
+                                class="card__img"
+                                src="~/img/wine-products/wine-product1.webp"
+                            />
+                            <p class="card__title">Наследие мастера</p>
+                            <div class="card__tags">
+                                <p class="tag tag-red">Каберне Совиньон</p>
+                                <p class="tag tag-green">Сухое</p>
+                                <p class="tag tag-purple">Премиум</p>
+                            </div>
+                        </a>
+                        <a class="card appear delay-2" href="/Wine/Details/2">
+                            <img
+                                alt="Коронационное"
+                                class="card__img"
+                                src="~/img/wine-products/wine-product2.jpg"
+                            />
+                            <p class="card__title">Коронационное</p>
+                            <div class="card__tags">
+                                <p class="tag tag-blue">Пино Нуар</p>
+                                <p class="tag tag-yellow">Сладкое</p>
+                                <p class="tag tag-red">Эксклюзив</p>
+                            </div>
+                        </a>
+                        <a class="card appear delay-3" href="/Wine/Details/3">
+                            <img
+                                alt="Брют Зеро"
+                                class="card__img"
+                                src="~/img/wine-products/wine-product3.jpg"
+                            />
+                            <p class="card__title">Брют Зеро</p>
+                            <div class="card__tags">
+                                <p class="tag tag-pink">Шардоне</p>
+                                <p class="tag tag-green">Сухое</p>
+                                <p class="tag tag-blue">Классика</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer class="footer">
+            <div class="container footer__container">
+                <div class="footer__info">
+                    <p>© 2024 Янтарное. Все права защищены.</p>
+                    <div class="footer__links">
+                        <a class="footer__link" href="/privacy.html"
+                            >Политика конфиденциальности</a
+                        >
+                        <a class="footer__link" href="/contacts.html"
+                            >Контакты</a
+                        >
+                        <a class="footer__link" href="/AddWine"
+                            >Добавить вино</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="fullscreen-overlay" id="fullscreenOverlay">
+            <div class="close-btn" id="closeBtn">&times;</div>
+            <img
+                class="fullscreen-image"
+                id="fullscreenImage"
+                src=""
+                alt="Fullscreen Image"
+            />
+        </div>
+        <div class="scroll-to-top" id="scrollToTop">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M18 15l-6-6-6 6" />
+            </svg>
+        </div>
+
+        <script src="~/scripts/image_fullscreaner.js"></script>
+        <script src="~/scripts/scroll_top.js"></script>
+        <script src="~/scripts/scroll_animations.js"></script>
+    </body>
+</html>

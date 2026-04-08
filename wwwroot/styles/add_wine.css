@@ -1,0 +1,119 @@
+/* Стили для страницы добавления вина и статей */
+@import url("variables.css");
+
+/* Минимальные стили для читаемости (разрешено для лабораторной) */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.field-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.hint {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+button[type="submit"] {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background: var(--secondary-color);
+}
+
+/* Стили для страницы добавления вина и статей */
+@import url("variables.css");
+
+/* Минимальные стили для читаемости (разрешено для лабораторной) */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.field-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.hint {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+button[type="submit"] {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background: var(--secondary-color);
+}

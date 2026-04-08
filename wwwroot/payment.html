@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Оплата - Янтарное</title>
+        <!-- Шрифты -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Стили -->
+        <link href="styles/variables.css" rel="stylesheet" />
+        <link href="styles/base.css" rel="stylesheet" />
+        <link href="styles/header.css" rel="stylesheet" />
+        <link href="styles/buttons.css" rel="stylesheet" />
+        <link href="styles/aurora.css" rel="stylesheet" />
+        <link href="styles/pages.css" rel="stylesheet" />
+        <link href="styles/footer.css" rel="stylesheet" />
+        <link href="styles/scroll_top.css" rel="stylesheet" />
+    </head>
+    <body class="body">
+        <header class="header">
+            <div class="container header__inner">
+                <div class="header__left">
+                    <a href="index.html" class="header__logo">
+                        <p class="header__logo-text">Янтарное</p>
+                    </a>
+                    <nav class="header__nav">
+                        <a href="Catalog" class="header__nav-link"
+                            >Каталог</a
+                        >
+                        <a href="about.html" class="header__nav-link">О нас</a>
+                        <a href="articles.html" class="header__nav-link"
+                            >Статьи</a
+                        >
+                        <a href="faq.html" class="header__nav-link">FAQ</a>
+                        <a href="delivery.html" class="header__nav-link"
+                            >Доставка</a
+                        >
+                        <a href="payment.html" class="header__nav-link"
+                            >Оплата</a
+                        >
+                    </nav>
+                </div>
+                <div class="header__right">
+                    <a
+                        href="/Cart"
+                        class="header__cart-icon"
+                        aria-label="Корзина"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                            ></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </a>
+                    <a href="contacts.html" class="button button-contact"
+                        >Связаться с нами</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="payment">
+                <div class="payment__container">
+                    <h1 class="payment__title animate-aurora">
+                        Способы оплаты
+                    </h1>
+
+                    <div class="payment__section">
+                        <h2 class="payment__section-title">Онлайн-оплата</h2>
+                        <ul class="payment__list">
+                            <li class="payment__item">
+                                <strong>Банковские карты:</strong> Мы принимаем
+                                к оплате кредитные и дебетовые карты Visa,
+                                MasterCard, Maestro и МИР. Оплата происходит
+                                через защищенный платежный шлюз.
+                            </li>
+                            <li class="payment__item">
+                                <strong>Системы онлайн-банкинга:</strong> Для
+                                удобства наших клиентов доступна оплата через
+                                системы онлайн-банкинга Сбербанк Онлайн,
+                                Альфа-Клик и другие.
+                            </li>
+                        </ul>
+                        <div class="payment__icons">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/2560px-Visa.svg.png"
+                                alt="Visa"
+                            />
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/2560px-Mastercard-logo.svg.png"
+                                alt="Mastercard"
+                            />
+                            <img src="img/mir_pay.png" alt="МИР" />
+                            <img src="img/youmoney.webp" alt" ="ЮMoney" />
+                        </div>
+                    </div>
+
+                    <div class="payment__section">
+                        <h2 class="payment__section-title">
+                            Оплата при получении
+                        </h2>
+                        <ul class="payment__list">
+                            <li class="payment__item">
+                                <strong>Наличными курьеру:</strong> Вы можете
+                                оплатить заказ наличными курьеру при получении
+                                товара. Пожалуйста, подготовьте точную сумму,
+                                если возможно.
+                            </li>
+                            <li class="payment__item">
+                                <strong>Банковской картой курьеру:</strong>
+                                Курьер прибудет с терминалом для безналичной
+                                оплаты.
+                            </li>
+                            <li class="payment__item">
+                                <strong>Оплата в пункте самовывоза:</strong> При
+                                самовывозе вы можете оплатить заказ наличными
+                                или банковской картой на кассе.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="payment__note">
+                        Все платежи обрабатываются безопасно. Мы гарантируем
+                        конфиденциальность ваших данных и защиту от
+                        мошенничества. В случае возникновения вопросов,
+                        пожалуйста, свяжитесь с нашей службой поддержки.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__container">
+                <div class="footer__info">
+                    <p>© 2024 Янтарное. Все права защищены.</p>
+                    <div class="footer__links">
+                        <a href="privacy.html" class="footer__link"
+                            >Политика конфиденциальности</a
+                        >
+                        <a href="contacts.html" class="footer__link"
+                            >Контакты</a
+                        >
+                        <a href="add_wine.html" class="footer__link"
+                            >Добавить вино</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="scroll-to-top" id="scrollToTop">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M18 15l-6-6-6 6" />
+            </svg>
+        </div>
+    </body>
+    <script src="scripts/scroll_top.js"></script>
+</html>

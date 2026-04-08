@@ -1,0 +1,116 @@
+/* ===========================================
+   Header Styles - Стили шапки
+   =========================================== */
+
+.header {
+    width: 100%;
+    background: var(--background-color-white);
+    box-shadow: var(--box-shadow-sm);
+    padding: 0;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 var(--padding-horizontal);
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.header__logo-img {
+    height: 32px;
+    width: 32px;
+}
+
+.header__logo-text {
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.header__nav {
+    display: flex;
+    gap: 24px;
+}
+
+.header__nav-link {
+    font-size: 1rem;
+    color: var(--text-color);
+    padding: 8px 14px;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    transition:
+        background var(--transition-duration),
+        color var(--transition-duration);
+}
+
+.header__nav-link:hover,
+.header__nav-link:focus {
+    color: var(--text-color-white);
+    background: var(--primary-color);
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.header__cart-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 7px;
+    transition: background var(--transition-duration);
+}
+
+.header__cart-icon:hover {
+    background: var(--background-color-alt);
+    color: var(--primary-color);
+}
+
+.header__btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    border-radius: 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background var(--transition-duration);
+}
+
+.header__btn:hover {
+    background: var(--background-color-alt);
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .header__nav {
+        gap: 12px;
+    }
+
+    .header__nav-link {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}

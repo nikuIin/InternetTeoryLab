@@ -1,0 +1,109 @@
+@{
+    ViewData["Title"] = "Добавить вино";
+}
+
+@section Styles {
+    <link href="~/styles/add_wine.css" rel="stylesheet" />
+    <link href="~/styles/add_wine_form.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <div class="form-card">
+        <h1 class="form-title">Добавление вина в каталог</h1>
+
+        <div class="success-banner" id="success-banner">
+            <strong>&#10003; Вино успешно добавлено!</strong>
+            <span id="success-text"></span>
+            <br /><a asp-controller="Catalog" asp-action="Index">Перейти в каталог</a>
+        </div>
+
+        <form id="wine-form" enctype="multipart/form-data" novalidate>
+
+            <div class="field-group">
+                <label for="Name">Название вина *</label>
+                <input type="text" id="Name" name="Name" placeholder="Например: Наследие мастера" />
+                <p class="hint">Только буквы, пробелы, дефисы и апострофы (минимум 3 символа)</p>
+                <p class="error-msg" id="err-Name"></p>
+            </div>
+
+            <div class="two-col">
+                <div class="field-group">
+                    <label for="WineType">Тип вина *</label>
+                    <select id="WineType" name="WineType">
+                        <option value="">— Выберите —</option>
+                        <option>Красное</option>
+                        <option>Белое</option>
+                        <option>Розовое</option>
+                        <option>Игристое</option>
+                        <option>Десертное</option>
+                    </select>
+                    <p class="error-msg" id="err-WineType"></p>
+                </div>
+
+                <div class="field-group">
+                    <label for="GrapeType">Тип винограда *</label>
+                    <input type="text" id="GrapeType" name="GrapeType" placeholder="Каберне Совиньон" />
+                    <p class="error-msg" id="err-GrapeType"></p>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="field-group">
+                    <label for="Year">Год урожая *</label>
+                    <input type="number" id="Year" name="Year" placeholder="2020" min="1800" max="2025" />
+                    <p class="hint">От 1800 до 2025</p>
+                    <p class="error-msg" id="err-Year"></p>
+                </div>
+
+                <div class="field-group">
+                    <label for="Alcohol">Алкоголь (%) *</label>
+                    <input type="number" id="Alcohol" name="Alcohol" placeholder="13.5" min="5" max="25" step="0.1" />
+                    <p class="hint">От 5.0 до 25.0</p>
+                    <p class="error-msg" id="err-Alcohol"></p>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label for="Price">Цена (руб.) *</label>
+                <input type="number" id="Price" name="Price" placeholder="3500" min="0" />
+                <p class="error-msg" id="err-Price"></p>
+            </div>
+
+            <div class="two-col">
+                <div class="field-group">
+                    <label for="ProducerEmail">Email производителя</label>
+                    <input type="email" id="ProducerEmail" name="ProducerEmail" placeholder="producer@example.com" />
+                    <p class="error-msg" id="err-ProducerEmail"></p>
+                </div>
+
+                <div class="field-group">
+                    <label for="ProducerPhone">Телефон</label>
+                    <input type="tel" id="ProducerPhone" name="ProducerPhone" placeholder="+7 (___) ___-__-__" maxlength="18" />
+                    <p class="hint">Формат: +7 (XXX) XXX-XX-XX</p>
+                    <p class="error-msg" id="err-ProducerPhone"></p>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label for="Description">Описание</label>
+                <textarea id="Description" name="Description" rows="3" placeholder="Краткое описание вина..."></textarea>
+            </div>
+
+            <div class="field-group">
+                <label for="Image">Изображение вина</label>
+                <input type="file" id="Image" name="Image" accept="image/jpeg,image/png,image/gif,image/webp" />
+                <p class="hint">JPG, PNG, GIF или WEBP, не более 2MB</p>
+                <p class="error-msg" id="err-Image"></p>
+            </div>
+
+            <button type="submit" class="button button-main" id="submit-btn" style="width:100%;padding:14px;">
+                Добавить вино в каталог
+            </button>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/scripts/add_wine_form.js"></script>
+}

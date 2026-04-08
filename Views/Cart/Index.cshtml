@@ -1,0 +1,454 @@
+@model List<CartItem>
+@{
+    ViewData["Title"] = "Корзина";
+}
+
+@section Styles {
+    <link href="~/styles/cart.css" rel="stylesheet" />
+    <style>
+        /* Стили для модального окна оформления заказа */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--background-color-white);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .modal-content .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color-input);
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: flex-end;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1a7a3c;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: var(--border-radius-md);
+            z-index: 1001;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast.error {
+            background: #b91c1c;
+        }
+
+        .cart__summary .button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
+}
+
+<div class="container">
+    <section class="cart">
+        <h1 class="cart__title animate-aurora">Корзина</h1>
+
+        <div id="cart-container">
+            @if (!Model.Any())
+            {
+                <div class="empty-cart" style="text-align: center; padding: 50px;">
+                    <p>Ваша корзина пуста</p>
+                    <a href="/Catalog" class="button button-main">Перейти в каталог</a>
+                </div>
+            }
+            else
+            {
+                <div class="cart__content">
+                    <div class="cart__items" id="cart-items-container">
+                        @foreach (var item in Model)
+                        {
+                            <div class="cart-item" data-item-id="@item.Id" data-wine-id="@item.WineId">
+                                <div class="cart-item__image">
+                                    <img src="@(item.Wine?.ImageUrl ?? "/img/wine-products/wine-product1.webp")"
+                                         alt="@item.Wine?.Name"
+                                         onerror="this.src='/img/wine-products/wine-product1.webp'" />
+                                </div>
+                                <div class="cart-item__info">
+                                    <a href="/Wine/Details/@item.WineId" class="cart-item__title-link">
+                                        <h3 class="cart-item__title">@item.Wine?.Name</h3>
+                                    </a>
+                                    <p class="cart-item__price">@((item.Wine?.Price ?? 0).ToString("N0")) ₽</p>
+                                    <div class="cart-item__quantity">
+                                        <button class="cart-item__quantity-btn" data-action="decr">-</button>
+                                        <input type="text" class="cart-item__quantity-input" value="@item.Quantity" readonly />
+                                        <button class="cart-item__quantity-btn" data-action="incr">+</button>
+                                    </div>
+                                </div>
+                                <button class="cart-item__remove" data-action="remove">&times;</button>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="cart__summary">
+                        <p class="cart__summary-title">Итого</p>
+                        <div class="cart__summary-row">
+                            <p>Товары (<span id="total-items-count">@Model.Sum(i => i.Quantity)</span>):</p>
+                            <p id="total-items-price">@Model.Sum(i => (i.Wine?.Price ?? 0) * i.Quantity).ToString("N0") ₽</p>
+                        </div>
+                        <div class="cart__summary-row">
+                            <p>Доставка:</p>
+                            <p>350 ₽</p>
+                        </div>
+                        <div class="cart__summary-row cart__summary-total">
+                            <p>Итого:</p>
+                            @{
+                                var total = Model.Sum(i => (i.Wine?.Price ?? 0) * i.Quantity) + 350;
+                            }
+                            <p id="total-price">@total.ToString("N0") ₽</p>
+                        </div>
+                        <button class="button button-main cart__checkout" id="checkout-btn">Оформить заказ</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+</div>
+
+<!-- Модальное окно для оформления заказа -->
+<div id="checkout-modal" class="modal">
+    <div class="modal-content">
+        <h2>Оформление заказа</h2>
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="address">Адрес доставки *</label>
+                <input type="text" id="address" name="address" required placeholder="Город, улица, дом, квартира" />
+            </div>
+            <div class="form-group">
+                <label for="phone">Номер телефона *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX" />
+            </div>
+            <div class="form-group">
+                <label for="name">Имя получателя *</label>
+                <input type="text" id="name" name="name" required placeholder="Ваше имя" />
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="button button-outline" id="cancel-btn">Отмена</button>
+                <button type="submit" class="button button-main">Подтвердить заказ</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+@section Scripts {
+    <script>
+        // Функция для обновления итогов
+        async function refreshCartSummary() {
+            try {
+                const response = await fetch('/Cart/GetCartSummary');
+                const summary = await response.json();
+
+                const itemsTotalSpan = document.getElementById('total-items-price');
+                const totalSpan = document.getElementById('total-price');
+                const itemsCountSpan = document.getElementById('total-items-count');
+
+                if (itemsTotalSpan) {
+                    itemsTotalSpan.textContent = summary.itemsTotal.toLocaleString('ru-RU') + ' ₽';
+                }
+                if (totalSpan) {
+                    totalSpan.textContent = (summary.itemsTotal + 350).toLocaleString('ru-RU') + ' ₽';
+                }
+                if (itemsCountSpan) {
+                    const items = document.querySelectorAll('.cart-item');
+                    itemsCountSpan.textContent = items.length;
+                }
+            } catch (error) {
+                console.error('Ошибка обновления итогов:', error);
+            }
+        }
+
+        // Функция для обновления всей корзины (перезагрузка содержимого)
+        async function refreshCart() {
+            try {
+                const response = await fetch('/Cart/GetCartHtml');
+                const html = await response.text();
+
+                const cartContainer = document.getElementById('cart-container');
+                if (cartContainer) {
+                    cartContainer.innerHTML = html;
+                    // Перезапускаем обработчики после обновления DOM
+                    attachCartEventHandlers();
+                }
+
+                // Обновляем счетчик в шапке
+                if (typeof updateCartCount === 'function') {
+                    updateCartCount();
+                }
+            } catch (error) {
+                console.error('Ошибка обновления корзины:', error);
+            }
+        }
+
+        // Обновление количества товара
+        async function updateItemQuantity(cartItemId, newQuantity) {
+            try {
+                const response = await fetch('/Cart/UpdateQuantity', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cartItemId: parseInt(cartItemId), newQuantity: newQuantity })
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    if (typeof updateCartCount === 'function') {
+                        updateCartCount();
+                    }
+
+                    const itemElement = document.querySelector(`.cart-item[data-item-id="${cartItemId}"]`);
+                    if (newQuantity === 0) {
+                        itemElement.remove();
+                    } else {
+                        itemElement.querySelector('.cart-item__quantity-input').value = newQuantity;
+                    }
+
+                    if (document.querySelectorAll('.cart-item').length === 0) {
+                        await refreshCart();
+                    } else {
+                        await refreshCartSummary();
+                    }
+                }
+            } catch (error) {
+                console.error('Ошибка обновления количества:', error);
+                showToast('Ошибка при обновлении количества', 'error');
+            }
+        }
+
+        // Показать уведомление
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type} show`;
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // Оформление заказа
+        async function processOrder(address, phone, customerName) {
+            try {
+                const response = await fetch('/Cart/ProcessOrder', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        address: address,
+                        phone: phone,
+                        customerName: customerName
+                    })
+                });
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Ошибка оформления заказа:', error);
+                return { success: false, message: 'Ошибка при оформлении заказа' };
+            }
+        }
+
+        // Навешиваем обработчики на кнопки в корзине
+        function attachCartEventHandlers() {
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const itemId = item.dataset.itemId;
+                const qtyInput = item.querySelector('.cart-item__quantity-input');
+                let currentQty = parseInt(qtyInput.value);
+
+                const decrBtn = item.querySelector('[data-action="decr"]');
+                if (decrBtn) {
+                    decrBtn.replaceWith(decrBtn.cloneNode(true));
+                    const newDecrBtn = item.querySelector('[data-action="decr"]');
+                    newDecrBtn.addEventListener('click', async () => {
+                        if (currentQty > 1) {
+                            currentQty--;
+                            await updateItemQuantity(itemId, currentQty);
+                        }
+                    });
+                }
+
+                const incrBtn = item.querySelector('[data-action="incr"]');
+                if (incrBtn) {
+                    incrBtn.replaceWith(incrBtn.cloneNode(true));
+                    const newIncrBtn = item.querySelector('[data-action="incr"]');
+                    newIncrBtn.addEventListener('click', async () => {
+                        currentQty++;
+                        await updateItemQuantity(itemId, currentQty);
+                    });
+                }
+
+                const removeBtn = item.querySelector('[data-action="remove"]');
+                if (removeBtn) {
+                    removeBtn.replaceWith(removeBtn.cloneNode(true));
+                    const newRemoveBtn = item.querySelector('[data-action="remove"]');
+                    newRemoveBtn.addEventListener('click', async () => {
+                        if (confirm('Удалить товар из корзины?')) {
+                            await updateItemQuantity(itemId, 0);
+                        }
+                    });
+                }
+            });
+
+            // Кнопка оформления заказа
+            const checkoutBtn = document.getElementById('checkout-btn');
+            if (checkoutBtn) {
+                checkoutBtn.replaceWith(checkoutBtn.cloneNode(true));
+                const newCheckoutBtn = document.getElementById('checkout-btn');
+                if (newCheckoutBtn) {
+                    newCheckoutBtn.addEventListener('click', () => {
+                        modal.classList.add('active');
+                    });
+                }
+            }
+        }
+
+        // Модальное окно оформления заказа
+        const modal = document.getElementById('checkout-modal');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const checkoutForm = document.getElementById('checkout-form');
+
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        }
+
+        // Закрытие модального окна при клике вне его
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Маска для телефона
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                let formattedValue = '+7 ';
+
+                if (value.length > 1) {
+                    formattedValue += '(' + value.substring(1, 4);
+                }
+                if (value.length >= 5) {
+                    formattedValue += ') ' + value.substring(4, 7);
+                }
+                if (value.length >= 8) {
+                    formattedValue += '-' + value.substring(7, 9);
+                }
+                if (value.length >= 10) {
+                    formattedValue += '-' + value.substring(9, 11);
+                }
+
+                e.target.value = formattedValue;
+            });
+        }
+
+        // Обработка отправки формы заказа
+        if (checkoutForm) {
+            checkoutForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const address = document.getElementById('address').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const customerName = document.getElementById('name').value.trim();
+
+                if (!address) {
+                    showToast('Введите адрес доставки', 'error');
+                    return;
+                }
+
+                if (!phone) {
+                    showToast('Введите номер телефона', 'error');
+                    return;
+                }
+
+                const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+                if (!phoneRegex.test(phone)) {
+                    showToast('Введите номер телефона в формате +7 (XXX) XXX-XX-XX', 'error');
+                    return;
+                }
+
+                if (!customerName) {
+                    showToast('Введите ваше имя', 'error');
+                    return;
+                }
+
+                const submitBtn = checkoutForm.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Оформляем...';
+
+                const result = await processOrder(address, phone, customerName);
+
+                if (result.success) {
+                    modal.classList.remove('active');
+                    checkoutForm.reset();
+                    showToast('Заказ успешно оформлен! Спасибо за покупку!');
+
+                    // Обновляем корзину через AJAX без перезагрузки страницы
+                    await refreshCart();
+
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Подтвердить заказ';
+                } else {
+                    showToast(result.message || 'Ошибка при оформлении заказа', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Подтвердить заказ';
+                }
+            });
+        }
+
+        // Инициализация обработчиков
+        attachCartEventHandlers();
+    </script>
+}
